@@ -16,4 +16,3 @@ async function insert(person) {
 function getAll() {
     return db('people');
 }
-
