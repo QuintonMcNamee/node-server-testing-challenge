@@ -11,13 +11,13 @@ describe('GET /', () => {
             });
     });
 
-    test('should return JSON', async () => {
+    it('should return JSON', async () => {
         const response = await request(server).get('/');
 
         expect(response.type).toMatch('json');
     });
 
-    test('should return JSON using .then()', () => {
+    it('should return JSON using .then()', () => {
         return request(server)
             .get('/')
             .then(response => {
@@ -29,5 +29,13 @@ describe('GET /', () => {
         const response = await request(server).get('/');
 
         expect(response.body).toEqual({ message: 'Server running' });
+    });
+
+    it('should return { api: "up" } using .then()', () => {
+        return request(server)
+            .get('/')
+            .then(response => {
+                expect(response.body).toEqual({ message: 'Server running' });
+            });
     });
 });
